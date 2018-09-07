@@ -1,0 +1,14 @@
+{
+  "name": "Pull script",
+  "description": "Script for pulling WildStar achievements off Jabbithole",
+  "main": "Main.xaml",
+  "dependencies": {},
+  "excludedData": [
+    "Private:*",
+    "*password*"
+  ],
+  "toolVersion": "18.2",
+  "projectVersion": "1.0.6824.4280",
+  "packOptions": {},
+  "runtimeOptions": {}
+}
