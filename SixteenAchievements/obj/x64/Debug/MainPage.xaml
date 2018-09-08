@@ -21,7 +21,7 @@
             <AppBarSeparator />
             <AppBarButton x:ConnectionId='37' x:Name="btnRace" Label="Roll Race"                       />
             <AppBarSeparator />
-            <AppBarButton x:ConnectionId='38' x:Name="btnPath" Label="Roll Path" />
+            <AppBarButton x:ConnectionId='38' x:Name="btnPath" Label="Roll Path"                       />
             <AppBarSeparator />
             <AppBarButton x:ConnectionId='39' x:Name="btnFindAchieves" Icon="Play" Label="Find Achievements" />
         </CommandBar>

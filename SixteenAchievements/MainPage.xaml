@@ -21,7 +21,7 @@
             <AppBarSeparator />
             <AppBarButton x:Name="btnRace" Label="Roll Race" Click="BtnRace_Click" />
             <AppBarSeparator />
-            <AppBarButton x:Name="btnPath" Label="Roll Path" />
+            <AppBarButton x:Name="btnPath" Label="Roll Path" Click="BtnPath_Click" />
             <AppBarSeparator />
             <AppBarButton x:Name="btnFindAchieves" Icon="Play" Label="Find Achievements" />
         </CommandBar>

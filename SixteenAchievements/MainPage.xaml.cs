@@ -60,6 +60,11 @@ namespace SixteenAchievements
             RollRace();
         }
 
+        private void BtnPath_Click(object sender, RoutedEventArgs e)
+        {
+            RollPath();
+        }
+
         private void RollFaction()
         {
             Random rand = new Random();
@@ -179,6 +184,13 @@ namespace SixteenAchievements
             btnRace.Label = charRace.ToString();
         }
 
+        private void RollPath()
+        {
+            Random rand = new Random();
+            charPath = (Path)rand.Next(1, 5);
+            btnPath.Label = charPath.ToString();
+        }
+
         private void NoFaction()
         {
             UICommand ok = new UICommand("OK");
@@ -196,14 +208,6 @@ namespace SixteenAchievements
             MessageDialog dialog = new MessageDialog(text, title);
             dialog.Commands.Add(button1);
             await dialog.ShowAsync();
-        }
-
-        private async void ShowMessage(string title, string text, UICommand button1, UICommand button2, UICommand result)
-        {
-            MessageDialog dialog = new MessageDialog(text, title);
-            dialog.Commands.Add(button1);
-            dialog.Commands.Add(button2);
-            result = (UICommand)await dialog.ShowAsync();
         }
     }
 }
