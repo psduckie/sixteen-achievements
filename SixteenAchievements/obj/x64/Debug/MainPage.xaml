@@ -15,13 +15,13 @@
         </Grid.RowDefinitions>
         <CommandBar x:ConnectionId='2' x:Name="RollBar" Background="Gray" IsOpen="False" DefaultLabelPosition="Right">
             <AppBarSeparator />
-            <AppBarButton x:ConnectionId='19' x:Name="btnFaction" Icon="Sync" Label="Faction" />
+            <AppBarButton x:ConnectionId='19' x:Name="btnFaction" Label="Roll Faction"                          />
             <AppBarSeparator />
-            <AppBarButton x:ConnectionId='20' x:Name="btnClass" Icon="Sync" Label="Class" />
+            <AppBarButton x:ConnectionId='20' x:Name="btnClass" Label="Roll Class"                        />
             <AppBarSeparator />
-            <AppBarButton x:ConnectionId='21' x:Name="btnRace" Icon="Sync" Label="Race" />
+            <AppBarButton x:ConnectionId='21' x:Name="btnRace" Label="Roll Race" />
             <AppBarSeparator />
-            <AppBarButton x:ConnectionId='22' x:Name="btnCustom1" Icon="Sync" Label="Custom 1" />
+            <AppBarButton x:ConnectionId='22' x:Name="btnPath" Label="Roll Path" />
             <AppBarSeparator />
             <AppBarButton x:ConnectionId='23' x:Name="btnFindAchieves" Icon="Play" Label="Find Achievements" />
         </CommandBar>

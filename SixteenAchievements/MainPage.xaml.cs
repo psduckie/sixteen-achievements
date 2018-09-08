@@ -17,14 +17,35 @@ using Windows.UI.Xaml.Navigation;
 
 namespace SixteenAchievements
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
+    public enum Faction {Unselected, Exile, Dominion};
+    public enum Race {Unselected, Human, Granok, Aurin, Mordesh, Cassian, Draken, Mechari, Chua}; // 1-4: Exile, 5-8: Dominion
+    public enum Class {Unselected, Warrior, Stalker, Spellslinger, Esper, Medic, Engineer};
+    public enum Path {Unselected, Explorer, Soldier, Scientist, Settler};
+
     public sealed partial class MainPage : Page
     {
+        private Faction charFaction;
+        private Race charRace;
+        private Class charClass;
+        private Path charPath;
+
         public MainPage()
         {
             this.InitializeComponent();
+        }
+
+        private void btnFaction_Click(object sender, RoutedEventArgs e)
+        {
+            Random rand = new Random();
+            charFaction = (Faction)rand.Next(1, 3);
+            btnFaction.Label = charFaction.ToString();
+        }
+
+        private void btnClass_Click(object sender, RoutedEventArgs e)
+        {
+            Random rand = new Random();
+            charClass = (Class)rand.Next(1, 7);
+            btnClass.Label = charClass.ToString();
         }
     }
 }

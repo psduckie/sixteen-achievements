@@ -31,13 +31,13 @@
     <AppXManifest Include="D:\Documents\Visual Studio 2017\Projects\SixteenAchievements\SixteenAchievements\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-09-08T01:25:01.067</Modified>
+      <Modified>2018-09-08T08:21:50.167</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="D:\Documents\Visual Studio 2017\Projects\SixteenAchievements\SixteenAchievements\bin\x64\Debug\SixteenAchievements.exe">
       <PackagePath>entrypoint\SixteenAchievements.exe</PackagePath>
-      <Modified>2018-09-08T01:25:00.139</Modified>
+      <Modified>2018-09-08T08:21:49.756</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x64.microsoft.netcore.universalwindowsplatform\6.1.7\runtimes\win10-x64\nativeassets\uap10.0.15138\clrcompression.dll">
       <PackagePath>clrcompression.dll</PackagePath>
@@ -697,53 +697,53 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Visual Studio 2017\Projects\SixteenAchievements\SixteenAchievements\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
-      <Modified>2018-09-07T18:06:11.658</Modified>
+      <Modified>2018-09-08T01:34:02.618</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Visual Studio 2017\Projects\SixteenAchievements\SixteenAchievements\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
-      <Modified>2018-09-07T05:34:53.172</Modified>
+      <Modified>2018-09-08T01:34:02.605</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Visual Studio 2017\Projects\SixteenAchievements\SixteenAchievements\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-09-07T05:34:53.172</Modified>
+      <Modified>2018-09-08T01:34:02.605</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Visual Studio 2017\Projects\SixteenAchievements\SixteenAchievements\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-09-07T05:34:53.172</Modified>
+      <Modified>2018-09-08T01:34:02.606</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Visual Studio 2017\Projects\SixteenAchievements\SixteenAchievements\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-09-07T05:34:53.172</Modified>
+      <Modified>2018-09-08T01:34:02.606</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Visual Studio 2017\Projects\SixteenAchievements\SixteenAchievements\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-09-07T05:34:53.172</Modified>
+      <Modified>2018-09-08T01:34:02.607</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Visual Studio 2017\Projects\SixteenAchievements\SixteenAchievements\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-09-07T05:34:53.172</Modified>
+      <Modified>2018-09-08T01:34:02.608</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Visual Studio 2017\Projects\SixteenAchievements\SixteenAchievements\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-09-07T05:34:53.172</Modified>
+      <Modified>2018-09-08T01:34:02.608</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Visual Studio 2017\Projects\SixteenAchievements\SixteenAchievements\bin\x64\Debug\SixteenAchievements.xr.xml">
       <PackagePath>SixteenAchievements.xr.xml</PackagePath>
-      <Modified>2018-09-08T01:24:59.884</Modified>
+      <Modified>2018-09-08T08:13:57.156</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Visual Studio 2017\Projects\SixteenAchievements\SixteenAchievements\bin\x64\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2018-09-08T01:24:59.926</Modified>
+      <Modified>2018-09-08T08:21:49.596</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Visual Studio 2017\Projects\SixteenAchievements\SixteenAchievements\bin\x64\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2018-09-08T01:24:59.926</Modified>
+      <Modified>2018-09-08T08:21:49.596</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Windows Kits\10\UnionMetadata\10.0.17134.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -752,11 +752,11 @@
     <AppxPackagedFile Include="D:\Documents\Visual Studio 2017\Projects\SixteenAchievements\SixteenAchievements\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-09-08T00:47:17.515</Modified>
+      <Modified>2018-09-08T08:10:51.267</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Visual Studio 2017\Projects\SixteenAchievements\SixteenAchievements\bin\x64\Debug\Core\SixteenAchievements.exe">
       <PackagePath>SixteenAchievements.exe</PackagePath>
-      <Modified>2018-09-08T01:25:01.058</Modified>
+      <Modified>2018-09-08T08:21:50.162</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
