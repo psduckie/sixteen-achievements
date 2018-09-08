@@ -15,11 +15,11 @@
         </Grid.RowDefinitions>
         <CommandBar x:Name="RollBar" Background="Gray" IsOpen="False" DefaultLabelPosition="Right">
             <AppBarSeparator />
-            <AppBarButton x:Name="btnFaction" Label="Roll Faction" Click="btnFaction_Click" />
+            <AppBarButton x:Name="btnFaction" Label="Roll Faction" Click="BtnFaction_Click" />
             <AppBarSeparator />
-            <AppBarButton x:Name="btnClass" Label="Roll Class" Click="btnClass_Click" />
+            <AppBarButton x:Name="btnClass" Label="Roll Class" Click="BtnClass_Click" />
             <AppBarSeparator />
-            <AppBarButton x:Name="btnRace" Label="Roll Race" />
+            <AppBarButton x:Name="btnRace" Label="Roll Race" Click="BtnRace_Click" />
             <AppBarSeparator />
             <AppBarButton x:Name="btnPath" Label="Roll Path" />
             <AppBarSeparator />
