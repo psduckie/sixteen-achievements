@@ -1,0 +1,427 @@
+﻿<Page
+    x:Class="SixteenAchievements.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SixteenAchievements"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="Black">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <CommandBar x:Name="RollBar" Background="Gray" IsOpen="False" DefaultLabelPosition="Right">
+            <AppBarSeparator />
+            <AppBarButton x:Name="btnFaction" Label="Roll Faction" Click="BtnFaction_Click" />
+            <AppBarSeparator />
+            <AppBarButton x:Name="btnClass" Label="Roll Class" Click="BtnClass_Click" />
+            <AppBarSeparator />
+            <AppBarButton x:Name="btnRace" Label="Roll Race" Click="BtnRace_Click" />
+            <AppBarSeparator />
+            <AppBarButton x:Name="btnPath" Label="Roll Path" Click="BtnPath_Click" />
+            <AppBarSeparator />
+            <AppBarButton x:Name="btnFindAchieves" Icon="Play" Label="Find Achievements" />
+        </CommandBar>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <!-- Achievement 1 -->
+            <Grid Grid.Row="0" Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="11*" />
+                    <RowDefinition Height="3*" />
+                    <RowDefinition Height="3*" />
+                </Grid.RowDefinitions>
+                <Border Background="DarkGoldenrod" BorderBrush="Black" BorderThickness="3,3,3,0" Grid.Row="0">
+                    <TextBlock Foreground="Black" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="40">
+                        Achievement 1
+                    </TextBlock>
+                </Border>
+                <Border x:Name="Achievement1Tier" Background="DarkGoldenrod" BorderBrush="Black" BorderThickness="3,0,3,0" Grid.Row="1">
+                    <TextBlock Foreground="Navy" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="28">
+                        Tier
+                    </TextBlock>
+                </Border>
+                <Border x:Name="Achievement1Status" Background="DarkRed" BorderBrush="Black" BorderThickness="3,0,3,3" Grid.Row="2">
+                    <TextBlock Foreground="White" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="28">
+                        Achievement Incomplete
+                    </TextBlock>
+                </Border>
+            </Grid>
+
+            <!-- Achievement 2 -->
+            <Grid Grid.Row="0" Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="11*" />
+                    <RowDefinition Height="3*" />
+                    <RowDefinition Height="3*" />
+                </Grid.RowDefinitions>
+                <Border Background="DarkGoldenrod" BorderBrush="Black" BorderThickness="3,3,3,0" Grid.Row="0">
+                    <TextBlock Foreground="Black" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="40">
+                        Achievement 2
+                    </TextBlock>
+                </Border>
+                <Border x:Name="Achievement2Tier" Background="DarkGoldenrod" BorderBrush="Black" BorderThickness="3,0,3,0" Grid.Row="1">
+                    <TextBlock Foreground="Navy" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="28">
+                        Tier
+                    </TextBlock>
+                </Border>
+                <Border x:Name="Achievement2Status" Background="DarkRed" BorderBrush="Black" BorderThickness="3,0,3,3" Grid.Row="2">
+                    <TextBlock Foreground="White" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="28">
+                        Achievement Incomplete
+                    </TextBlock>
+                </Border>
+            </Grid>
+
+            <!-- Achievement 3 -->
+            <Grid Grid.Row="0" Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="11*" />
+                    <RowDefinition Height="3*" />
+                    <RowDefinition Height="3*" />
+                </Grid.RowDefinitions>
+                <Border Background="DarkGoldenrod" BorderBrush="Black" BorderThickness="3,3,3,0" Grid.Row="0">
+                    <TextBlock Foreground="Black" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="40">
+                        Achievement 3
+                    </TextBlock>
+                </Border>
+                <Border x:Name="Achievement3Tier" Background="DarkGoldenrod" BorderBrush="Black" BorderThickness="3,0,3,0" Grid.Row="1">
+                    <TextBlock Foreground="Navy" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="28">
+                        Tier
+                    </TextBlock>
+                </Border>
+                <Border x:Name="Achievement3Status" Background="DarkRed" BorderBrush="Black" BorderThickness="3,0,3,3" Grid.Row="2">
+                    <TextBlock Foreground="White" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="28">
+                        Achievement Incomplete
+                    </TextBlock>
+                </Border>
+            </Grid>
+
+            <!-- Achievement 4 -->
+            <Grid Grid.Row="0" Grid.Column="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="11*" />
+                    <RowDefinition Height="3*" />
+                    <RowDefinition Height="3*" />
+                </Grid.RowDefinitions>
+                <Border Background="DarkGoldenrod" BorderBrush="Black" BorderThickness="3,3,3,0" Grid.Row="0">
+                    <TextBlock Foreground="Black" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="40">
+                        Achievement 4
+                    </TextBlock>
+                </Border>
+                <Border x:Name="Achievement4Tier" Background="DarkGoldenrod" BorderBrush="Black" BorderThickness="3,0,3,0" Grid.Row="1">
+                    <TextBlock Foreground="Navy" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="28">
+                        Tier
+                    </TextBlock>
+                </Border>
+                <Border x:Name="Achievement4Status" Background="DarkRed" BorderBrush="Black" BorderThickness="3,0,3,3" Grid.Row="2">
+                    <TextBlock Foreground="White" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="28">
+                        Achievement Incomplete
+                    </TextBlock>
+                </Border>
+            </Grid>
+
+            <!-- Achievement 5 -->
+            <Grid Grid.Row="1" Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="11*" />
+                    <RowDefinition Height="3*" />
+                    <RowDefinition Height="3*" />
+                </Grid.RowDefinitions>
+                <Border Background="DarkGoldenrod" BorderBrush="Black" BorderThickness="3,3,3,0" Grid.Row="0">
+                    <TextBlock Foreground="Black" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="40">
+                        Achievement 5
+                    </TextBlock>
+                </Border>
+                <Border x:Name="Achievement5Tier" Background="DarkGoldenrod" BorderBrush="Black" BorderThickness="3,0,3,0" Grid.Row="1">
+                    <TextBlock Foreground="Navy" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="28">
+                        Tier
+                    </TextBlock>
+                </Border>
+                <Border x:Name="Achievement5Status" Background="DarkRed" BorderBrush="Black" BorderThickness="3,0,3,3" Grid.Row="2">
+                    <TextBlock Foreground="White" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="28">
+                        Achievement Incomplete
+                    </TextBlock>
+                </Border>
+            </Grid>
+
+            <!-- Achievement 6 -->
+            <Grid Grid.Row="1" Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="11*" />
+                    <RowDefinition Height="3*" />
+                    <RowDefinition Height="3*" />
+                </Grid.RowDefinitions>
+                <Border Background="DarkGoldenrod" BorderBrush="Black" BorderThickness="3,3,3,0" Grid.Row="0">
+                    <TextBlock Foreground="Black" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="40">
+                        Achievement 6
+                    </TextBlock>
+                </Border>
+                <Border x:Name="Achievement6Tier" Background="DarkGoldenrod" BorderBrush="Black" BorderThickness="3,0,3,0" Grid.Row="1">
+                    <TextBlock Foreground="Navy" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="28">
+                        Tier
+                    </TextBlock>
+                </Border>
+                <Border x:Name="Achievement6Status" Background="DarkRed" BorderBrush="Black" BorderThickness="3,0,3,3" Grid.Row="2">
+                    <TextBlock Foreground="White" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="28">
+                        Achievement Incomplete
+                    </TextBlock>
+                </Border>
+            </Grid>
+
+            <!-- Achievement 7 -->
+            <Grid Grid.Row="1" Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="11*" />
+                    <RowDefinition Height="3*" />
+                    <RowDefinition Height="3*" />
+                </Grid.RowDefinitions>
+                <Border Background="DarkGoldenrod" BorderBrush="Black" BorderThickness="3,3,3,0" Grid.Row="0">
+                    <TextBlock Foreground="Black" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="40">
+                        Achievement 7
+                    </TextBlock>
+                </Border>
+                <Border x:Name="Achievement7Tier" Background="DarkGoldenrod" BorderBrush="Black" BorderThickness="3,0,3,0" Grid.Row="1">
+                    <TextBlock Foreground="Navy" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="28">
+                        Tier
+                    </TextBlock>
+                </Border>
+                <Border x:Name="Achievement7Status" Background="DarkRed" BorderBrush="Black" BorderThickness="3,0,3,3" Grid.Row="2">
+                    <TextBlock Foreground="White" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="28">
+                        Achievement Incomplete
+                    </TextBlock>
+                </Border>
+            </Grid>
+
+            <!-- Achievement 8 -->
+            <Grid Grid.Row="1" Grid.Column="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="11*" />
+                    <RowDefinition Height="3*" />
+                    <RowDefinition Height="3*" />
+                </Grid.RowDefinitions>
+                <Border Background="DarkGoldenrod" BorderBrush="Black" BorderThickness="3,3,3,0" Grid.Row="0">
+                    <TextBlock Foreground="Black" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="40">
+                        Achievement 8
+                    </TextBlock>
+                </Border>
+                <Border x:Name="Achievement8Tier" Background="DarkGoldenrod" BorderBrush="Black" BorderThickness="3,0,3,0" Grid.Row="1">
+                    <TextBlock Foreground="Navy" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="28">
+                        Tier
+                    </TextBlock>
+                </Border>
+                <Border x:Name="Achievement8Status" Background="DarkRed" BorderBrush="Black" BorderThickness="3,0,3,3" Grid.Row="2">
+                    <TextBlock Foreground="White" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="28">
+                        Achievement Incomplete
+                    </TextBlock>
+                </Border>
+            </Grid>
+
+            <!-- Achievement 9 -->
+            <Grid Grid.Row="2" Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="11*" />
+                    <RowDefinition Height="3*" />
+                    <RowDefinition Height="3*" />
+                </Grid.RowDefinitions>
+                <Border Background="DarkGoldenrod" BorderBrush="Black" BorderThickness="3,3,3,0" Grid.Row="0">
+                    <TextBlock Foreground="Black" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="40">
+                        Achievement 9
+                    </TextBlock>
+                </Border>
+                <Border x:Name="Achievement9Tier" Background="DarkGoldenrod" BorderBrush="Black" BorderThickness="3,0,3,0" Grid.Row="1">
+                    <TextBlock Foreground="Navy" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="28">
+                        Tier
+                    </TextBlock>
+                </Border>
+                <Border x:Name="Achievement9Status" Background="DarkRed" BorderBrush="Black" BorderThickness="3,0,3,3" Grid.Row="2">
+                    <TextBlock Foreground="White" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="28">
+                        Achievement Incomplete
+                    </TextBlock>
+                </Border>
+            </Grid>
+
+            <!-- Achievement 10 -->
+            <Grid Grid.Row="2" Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="11*" />
+                    <RowDefinition Height="3*" />
+                    <RowDefinition Height="3*" />
+                </Grid.RowDefinitions>
+                <Border Background="DarkGoldenrod" BorderBrush="Black" BorderThickness="3,3,3,0" Grid.Row="0">
+                    <TextBlock Foreground="Black" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="40">
+                        Achievement 10
+                    </TextBlock>
+                </Border>
+                <Border x:Name="Achievement10Tier" Background="DarkGoldenrod" BorderBrush="Black" BorderThickness="3,0,3,0" Grid.Row="1">
+                    <TextBlock Foreground="Navy" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="28">
+                        Tier
+                    </TextBlock>
+                </Border>
+                <Border x:Name="Achievement10Status" Background="DarkRed" BorderBrush="Black" BorderThickness="3,0,3,3" Grid.Row="2">
+                    <TextBlock Foreground="White" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="28">
+                        Achievement Incomplete
+                    </TextBlock>
+                </Border>
+            </Grid>
+
+            <!-- Achievement 11 -->
+            <Grid Grid.Row="2" Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="11*" />
+                    <RowDefinition Height="3*" />
+                    <RowDefinition Height="3*" />
+                </Grid.RowDefinitions>
+                <Border Background="DarkGoldenrod" BorderBrush="Black" BorderThickness="3,3,3,0" Grid.Row="0">
+                    <TextBlock Foreground="Black" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="40">
+                        Achievement 11
+                    </TextBlock>
+                </Border>
+                <Border x:Name="Achievement11Tier" Background="DarkGoldenrod" BorderBrush="Black" BorderThickness="3,0,3,0" Grid.Row="1">
+                    <TextBlock Foreground="Navy" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="28">
+                        Tier
+                    </TextBlock>
+                </Border>
+                <Border x:Name="Achievement11Status" Background="DarkRed" BorderBrush="Black" BorderThickness="3,0,3,3" Grid.Row="2">
+                    <TextBlock Foreground="White" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="28">
+                        Achievement Incomplete
+                    </TextBlock>
+                </Border>
+            </Grid>
+
+            <!-- Achievement 12 -->
+            <Grid Grid.Row="2" Grid.Column="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="11*" />
+                    <RowDefinition Height="3*" />
+                    <RowDefinition Height="3*" />
+                </Grid.RowDefinitions>
+                <Border Background="DarkGoldenrod" BorderBrush="Black" BorderThickness="3,3,3,0" Grid.Row="0">
+                    <TextBlock Foreground="Black" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="40">
+                        Achievement 12
+                    </TextBlock>
+                </Border>
+                <Border x:Name="Achievement12Tier" Background="DarkGoldenrod" BorderBrush="Black" BorderThickness="3,0,3,0" Grid.Row="1">
+                    <TextBlock Foreground="Navy" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="28">
+                        Tier
+                    </TextBlock>
+                </Border>
+                <Border x:Name="Achievement12Status" Background="DarkRed" BorderBrush="Black" BorderThickness="3,0,3,3" Grid.Row="2">
+                    <TextBlock Foreground="White" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="28">
+                        Achievement Incomplete
+                    </TextBlock>
+                </Border>
+            </Grid>
+
+            <!-- Achievement 13 -->
+            <Grid Grid.Row="3" Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="11*" />
+                    <RowDefinition Height="3*" />
+                    <RowDefinition Height="3*" />
+                </Grid.RowDefinitions>
+                <Border Background="DarkGoldenrod" BorderBrush="Black" BorderThickness="3,3,3,0" Grid.Row="0">
+                    <TextBlock Foreground="Black" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="40">
+                        Achievement 13
+                    </TextBlock>
+                </Border>
+                <Border x:Name="Achievement13Tier" Background="DarkGoldenrod" BorderBrush="Black" BorderThickness="3,0,3,0" Grid.Row="1">
+                    <TextBlock Foreground="Navy" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="28">
+                        Tier
+                    </TextBlock>
+                </Border>
+                <Border x:Name="Achievement13Status" Background="DarkRed" BorderBrush="Black" BorderThickness="3,0,3,3" Grid.Row="2">
+                    <TextBlock Foreground="White" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="28">
+                        Achievement Incomplete
+                    </TextBlock>
+                </Border>
+            </Grid>
+
+            <!-- Achievement 14 -->
+            <Grid Grid.Row="3" Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="11*" />
+                    <RowDefinition Height="3*" />
+                    <RowDefinition Height="3*" />
+                </Grid.RowDefinitions>
+                <Border Background="DarkGoldenrod" BorderBrush="Black" BorderThickness="3,3,3,0" Grid.Row="0">
+                    <TextBlock Foreground="Black" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="40">
+                        Achievement 14
+                    </TextBlock>
+                </Border>
+                <Border x:Name="Achievement14Tier" Background="DarkGoldenrod" BorderBrush="Black" BorderThickness="3,0,3,0" Grid.Row="1">
+                    <TextBlock Foreground="Navy" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="28">
+                        Tier
+                    </TextBlock>
+                </Border>
+                <Border x:Name="Achievement14Status" Background="DarkRed" BorderBrush="Black" BorderThickness="3,0,3,3" Grid.Row="2">
+                    <TextBlock Foreground="White" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="28">
+                        Achievement Incomplete
+                    </TextBlock>
+                </Border>
+            </Grid>
+
+            <!-- Achievement 15 -->
+            <Grid Grid.Row="3" Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="11*" />
+                    <RowDefinition Height="3*" />
+                    <RowDefinition Height="3*" />
+                </Grid.RowDefinitions>
+                <Border Background="DarkGoldenrod" BorderBrush="Black" BorderThickness="3,3,3,0" Grid.Row="0">
+                    <TextBlock Foreground="Black" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="40">
+                        Achievement 15
+                    </TextBlock>
+                </Border>
+                <Border x:Name="Achievement15Tier" Background="DarkGoldenrod" BorderBrush="Black" BorderThickness="3,0,3,0" Grid.Row="1">
+                    <TextBlock Foreground="Navy" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="28">
+                        Tier
+                    </TextBlock>
+                </Border>
+                <Border x:Name="Achievement15Status" Background="DarkRed" BorderBrush="Black" BorderThickness="3,0,3,3" Grid.Row="2">
+                    <TextBlock Foreground="White" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="28">
+                        Achievement Incomplete
+                    </TextBlock>
+                </Border>
+            </Grid>
+
+            <!-- Achievement 16 -->
+            <Grid Grid.Row="3" Grid.Column="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="11*" />
+                    <RowDefinition Height="3*" />
+                    <RowDefinition Height="3*" />
+                </Grid.RowDefinitions>
+                <Border Background="DarkGoldenrod" BorderBrush="Black" BorderThickness="3,3,3,0" Grid.Row="0">
+                    <TextBlock Foreground="Black" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="40">
+                        Achievement 16
+                    </TextBlock>
+                </Border>
+                <Border x:Name="Achievement16Tier" Background="DarkGoldenrod" BorderBrush="Black" BorderThickness="3,0,3,0" Grid.Row="1">
+                    <TextBlock Foreground="Navy" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="28">
+                        Tier
+                    </TextBlock>
+                </Border>
+                <Border x:Name="Achievement16Status" Background="DarkRed" BorderBrush="Black" BorderThickness="3,0,3,3" Grid.Row="2">
+                    <TextBlock Foreground="White" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="28">
+                        Achievement Incomplete
+                    </TextBlock>
+                </Border>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>
