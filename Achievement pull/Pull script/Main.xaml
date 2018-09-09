@@ -61,140 +61,463 @@
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Sequence sap2010:WorkflowViewState.IdRef="Sequence_1">
-    <Sequence DisplayName="Data scraping" sap2010:WorkflowViewState.IdRef="Sequence_3">
-      <Sequence.Variables>
-        <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="ExtractDataTable" />
-      </Sequence.Variables>
-      <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Attach Browser 'WildStara Page'" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="cbc4298024fd468a53578299c5ea9dd7" Selector="&lt;html title='WildStar achievements at Jabbithole, the database built by cupca*' /&gt;">
-        <ui:BrowserScope.Body>
+    <Sequence.Variables>
+      <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="ExtractDataTableExile" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="ExtractDataTableExileNew" />
+    </Sequence.Variables>
+    <Sequence DisplayName="Recording Sequence" sap2010:WorkflowViewState.IdRef="Sequence_5">
+      <ui:OpenBrowser UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Open http://www.jabbithole.com/achievements?f=c:78/_gu:f/_ae:t" Hidden="False" sap2010:WorkflowViewState.IdRef="OpenBrowser_2" NewSession="True" Private="False" Url="http://www.jabbithole.com/achievements?f=c:78/_gu:f/_ae:t">
+        <ui:OpenBrowser.Body>
           <ActivityAction x:TypeArguments="x:Object">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_2">
-              <ui:ExtractData ContinueOnError="True" DataTable="[ExtractDataTable]" DelayBetweenPagesMS="300" DisplayName="Extract Structured Data 'TABLE  DataTables_Table...'" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' /&gt;" sap2010:WorkflowViewState.IdRef="ExtractData_1" MaxNumberOfResults="242" NextLinkSelector="&lt;webctrl id='DataTables_Table_0_next' tag='A' /&gt;">
+            <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_4">
+              <ui:ExtractData ContinueOnError="True" DataTable="[ExtractDataTableExile]" DelayBetweenPagesMS="300" DisplayName="Extract Structured Data 'TABLE  DataTables_Table...'" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' /&gt;" sap2010:WorkflowViewState.IdRef="ExtractData_4" MaxNumberOfResults="118" NextLinkSelector="&lt;webctrl id='DataTables_Table_0_next' tag='A' /&gt;">
                 <ui:ExtractData.Target>
-                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="a1e7aa875b6af507d7dceb682822aa52" Selector="&lt;webctrl id='DataTables_Table_0' tag='TABLE' /&gt;" WaitForReady="COMPLETE" />
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="d383f4a6f66f03661c6eb3714d4075fb" Selector="&lt;webctrl id='DataTables_Table_0' tag='TABLE' /&gt;" WaitForReady="COMPLETE" />
                 </ui:ExtractData.Target>
               </ui:ExtractData>
+              <Sequence sap2010:WorkflowViewState.IdRef="Sequence_6">
+                <ui:NavigateTo Browser="{x:Null}" DisplayName="Navigate to" sap2010:WorkflowViewState.IdRef="NavigateTo_1" Url="http://www.jabbithole.com/achievements?f=c:161/_gu:f/_ae:t" />
+                <ui:ExtractData NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[ExtractDataTableExileNew]" DelayBetweenPagesMS="300" DisplayName="Extract Structured Data 'TABLE  DataTables_Table...'" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' /&gt;" sap2010:WorkflowViewState.IdRef="ExtractData_5" MaxNumberOfResults="19">
+                  <ui:ExtractData.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="1e96492088e355b4fc85b9639d7582df" Selector="&lt;webctrl id='DataTables_Table_0' tag='TABLE' /&gt;" WaitForReady="COMPLETE" />
+                  </ui:ExtractData.Target>
+                </ui:ExtractData>
+                <ui:MergeDataTable Destination="[ExtractDataTableExile]" DisplayName="Merge data table" sap2010:WorkflowViewState.IdRef="MergeDataTable_1" MissingSchemaAction="Add" Source="[ExtractDataTableExileNew]" />
+                <ui:ClearDataTable DataTable="[ExtractDataTableExileNew]" DisplayName="Clear data table" sap2010:WorkflowViewState.IdRef="ClearDataTable_1" />
+              </Sequence>
+              <Sequence sap2010:WorkflowViewState.IdRef="Sequence_7">
+                <ui:NavigateTo Browser="{x:Null}" DisplayName="Navigate to" sap2010:WorkflowViewState.IdRef="NavigateTo_2" Url="http://www.jabbithole.com/achievements?f=c:331/_gu:f/_ae:t" />
+                <ui:ExtractData NextLinkSelector="{x:Null}" DataTable="[ExtractDataTableExileNew]" DelayBetweenPagesMS="300" DisplayName="Extract Structured Data 'TABLE  DataTables_Table...'" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' /&gt;" sap2010:WorkflowViewState.IdRef="ExtractData_7" MaxNumberOfResults="0">
+                  <ui:ExtractData.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="c65c079d637f3bb24eaebfe1af3597d4" Selector="&lt;webctrl id='DataTables_Table_0' tag='TABLE' /&gt;" WaitForReady="INTERACTIVE" />
+                  </ui:ExtractData.Target>
+                </ui:ExtractData>
+                <ui:MergeDataTable Destination="[ExtractDataTableExile]" DisplayName="Merge data table" sap2010:WorkflowViewState.IdRef="MergeDataTable_2" MissingSchemaAction="Add" Source="[ExtractDataTableExileNew]" />
+                <ui:ClearDataTable DataTable="[ExtractDataTableExileNew]" DisplayName="Clear data table" sap2010:WorkflowViewState.IdRef="ClearDataTable_2" />
+              </Sequence>
+              <Sequence sap2010:WorkflowViewState.IdRef="Sequence_20">
+                <ui:NavigateTo Browser="{x:Null}" DisplayName="Navigate to" sap2010:WorkflowViewState.IdRef="NavigateTo_8" Url="http://www.jabbithole.com/achievements?f=c:65/_ti:1/_gu:f/_ae:t" />
+                <ui:ExtractData NextLinkSelector="{x:Null}" DataTable="[ExtractDataTableExileNew]" DelayBetweenPagesMS="300" DisplayName="Extract Structured Data 'TABLE  DataTables_Table...'" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' /&gt;" sap2010:WorkflowViewState.IdRef="ExtractData_13" MaxNumberOfResults="0">
+                  <ui:ExtractData.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="c65c079d637f3bb24eaebfe1af3597d4" Selector="&lt;webctrl id='DataTables_Table_0' tag='TABLE' /&gt;" WaitForReady="INTERACTIVE" />
+                  </ui:ExtractData.Target>
+                </ui:ExtractData>
+                <ui:MergeDataTable Destination="[ExtractDataTableExile]" DisplayName="Merge data table" sap2010:WorkflowViewState.IdRef="MergeDataTable_8" MissingSchemaAction="Add" Source="[ExtractDataTableExileNew]" />
+                <ui:ClearDataTable DataTable="[ExtractDataTableExileNew]" DisplayName="Clear data table" sap2010:WorkflowViewState.IdRef="ClearDataTable_8" />
+              </Sequence>
+              <Sequence sap2010:WorkflowViewState.IdRef="Sequence_21">
+                <ui:NavigateTo Browser="{x:Null}" DisplayName="Navigate to" sap2010:WorkflowViewState.IdRef="NavigateTo_9" Url="http://www.jabbithole.com/achievements?f=c:65/_ti:0/_gu:f/_ae:t" />
+                <ui:ExtractData NextLinkSelector="{x:Null}" DataTable="[ExtractDataTableExileNew]" DelayBetweenPagesMS="300" DisplayName="Extract Structured Data 'TABLE  DataTables_Table...'" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' /&gt;" sap2010:WorkflowViewState.IdRef="ExtractData_14" MaxNumberOfResults="0">
+                  <ui:ExtractData.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="c65c079d637f3bb24eaebfe1af3597d4" Selector="&lt;webctrl id='DataTables_Table_0' tag='TABLE' /&gt;" WaitForReady="INTERACTIVE" />
+                  </ui:ExtractData.Target>
+                </ui:ExtractData>
+                <ui:MergeDataTable Destination="[ExtractDataTableExile]" DisplayName="Merge data table" sap2010:WorkflowViewState.IdRef="MergeDataTable_9" MissingSchemaAction="Add" Source="[ExtractDataTableExileNew]" />
+                <ui:ClearDataTable DataTable="[ExtractDataTableExileNew]" DisplayName="Clear data table" sap2010:WorkflowViewState.IdRef="ClearDataTable_9" />
+              </Sequence>
+              <Sequence sap2010:WorkflowViewState.IdRef="Sequence_22">
+                <ui:NavigateTo Browser="{x:Null}" DisplayName="Navigate to" sap2010:WorkflowViewState.IdRef="NavigateTo_10" Url="http://www.jabbithole.com/achievements?f=c:162/_gu:f/_ae:t" />
+                <ui:ExtractData NextLinkSelector="{x:Null}" DataTable="[ExtractDataTableExileNew]" DelayBetweenPagesMS="300" DisplayName="Extract Structured Data 'TABLE  DataTables_Table...'" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' /&gt;" sap2010:WorkflowViewState.IdRef="ExtractData_15" MaxNumberOfResults="0">
+                  <ui:ExtractData.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="c65c079d637f3bb24eaebfe1af3597d4" Selector="&lt;webctrl id='DataTables_Table_0' tag='TABLE' /&gt;" WaitForReady="INTERACTIVE" />
+                  </ui:ExtractData.Target>
+                </ui:ExtractData>
+                <ui:MergeDataTable Destination="[ExtractDataTableExile]" DisplayName="Merge data table" sap2010:WorkflowViewState.IdRef="MergeDataTable_10" MissingSchemaAction="Add" Source="[ExtractDataTableExileNew]" />
+                <ui:ClearDataTable DataTable="[ExtractDataTableExileNew]" DisplayName="Clear data table" sap2010:WorkflowViewState.IdRef="ClearDataTable_10" />
+              </Sequence>
+              <Sequence sap2010:WorkflowViewState.IdRef="Sequence_23">
+                <ui:NavigateTo Browser="{x:Null}" DisplayName="Navigate to" sap2010:WorkflowViewState.IdRef="NavigateTo_11" Url="http://www.jabbithole.com/achievements?f=c:1/_gu:f/_ae:t" />
+                <ui:ExtractData NextLinkSelector="{x:Null}" DataTable="[ExtractDataTableExileNew]" DelayBetweenPagesMS="300" DisplayName="Extract Structured Data 'TABLE  DataTables_Table...'" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' /&gt;" sap2010:WorkflowViewState.IdRef="ExtractData_16" MaxNumberOfResults="0">
+                  <ui:ExtractData.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="c65c079d637f3bb24eaebfe1af3597d4" Selector="&lt;webctrl id='DataTables_Table_0' tag='TABLE' /&gt;" WaitForReady="INTERACTIVE" />
+                  </ui:ExtractData.Target>
+                </ui:ExtractData>
+                <ui:MergeDataTable Destination="[ExtractDataTableExile]" DisplayName="Merge data table" sap2010:WorkflowViewState.IdRef="MergeDataTable_11" MissingSchemaAction="Add" Source="[ExtractDataTableExileNew]" />
+                <ui:ClearDataTable DataTable="[ExtractDataTableExileNew]" DisplayName="Clear data table" sap2010:WorkflowViewState.IdRef="ClearDataTable_11" />
+              </Sequence>
+              <Sequence sap2010:WorkflowViewState.IdRef="Sequence_24">
+                <ui:NavigateTo Browser="{x:Null}" DisplayName="Navigate to" sap2010:WorkflowViewState.IdRef="NavigateTo_12" Url="http://www.jabbithole.com/achievements?f=c:12/_gu:f/_ae:t" />
+                <ui:ExtractData NextLinkSelector="{x:Null}" DataTable="[ExtractDataTableExileNew]" DelayBetweenPagesMS="300" DisplayName="Extract Structured Data 'TABLE  DataTables_Table...'" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' /&gt;" sap2010:WorkflowViewState.IdRef="ExtractData_17" MaxNumberOfResults="0">
+                  <ui:ExtractData.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="c65c079d637f3bb24eaebfe1af3597d4" Selector="&lt;webctrl id='DataTables_Table_0' tag='TABLE' /&gt;" WaitForReady="INTERACTIVE" />
+                  </ui:ExtractData.Target>
+                </ui:ExtractData>
+                <ui:MergeDataTable Destination="[ExtractDataTableExile]" DisplayName="Merge data table" sap2010:WorkflowViewState.IdRef="MergeDataTable_12" MissingSchemaAction="Add" Source="[ExtractDataTableExileNew]" />
+                <ui:ClearDataTable DataTable="[ExtractDataTableExileNew]" DisplayName="Clear data table" sap2010:WorkflowViewState.IdRef="ClearDataTable_12" />
+              </Sequence>
+              <Sequence sap2010:WorkflowViewState.IdRef="Sequence_25">
+                <ui:NavigateTo Browser="{x:Null}" DisplayName="Navigate to" sap2010:WorkflowViewState.IdRef="NavigateTo_13" Url="http://www.jabbithole.com/achievements?f=c:290/_gu:f/_ae:t" />
+                <ui:ExtractData NextLinkSelector="{x:Null}" DataTable="[ExtractDataTableExileNew]" DelayBetweenPagesMS="300" DisplayName="Extract Structured Data 'TABLE  DataTables_Table...'" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' /&gt;" sap2010:WorkflowViewState.IdRef="ExtractData_18" MaxNumberOfResults="0">
+                  <ui:ExtractData.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="c65c079d637f3bb24eaebfe1af3597d4" Selector="&lt;webctrl id='DataTables_Table_0' tag='TABLE' /&gt;" WaitForReady="INTERACTIVE" />
+                  </ui:ExtractData.Target>
+                </ui:ExtractData>
+                <ui:MergeDataTable Destination="[ExtractDataTableExile]" DisplayName="Merge data table" sap2010:WorkflowViewState.IdRef="MergeDataTable_13" MissingSchemaAction="Add" Source="[ExtractDataTableExileNew]" />
+                <ui:ClearDataTable DataTable="[ExtractDataTableExileNew]" DisplayName="Clear data table" sap2010:WorkflowViewState.IdRef="ClearDataTable_13" />
+              </Sequence>
+              <Sequence sap2010:WorkflowViewState.IdRef="Sequence_26">
+                <ui:NavigateTo Browser="{x:Null}" DisplayName="Navigate to" sap2010:WorkflowViewState.IdRef="NavigateTo_14" Url="http://www.jabbithole.com/achievements?f=c:4/_ti:1/_gu:f/_ae:t" />
+                <ui:ExtractData NextLinkSelector="{x:Null}" DataTable="[ExtractDataTableExileNew]" DelayBetweenPagesMS="300" DisplayName="Extract Structured Data 'TABLE  DataTables_Table...'" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' /&gt;" sap2010:WorkflowViewState.IdRef="ExtractData_19" MaxNumberOfResults="0">
+                  <ui:ExtractData.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="c65c079d637f3bb24eaebfe1af3597d4" Selector="&lt;webctrl id='DataTables_Table_0' tag='TABLE' /&gt;" WaitForReady="INTERACTIVE" />
+                  </ui:ExtractData.Target>
+                </ui:ExtractData>
+                <ui:MergeDataTable Destination="[ExtractDataTableExile]" DisplayName="Merge data table" sap2010:WorkflowViewState.IdRef="MergeDataTable_14" MissingSchemaAction="Add" Source="[ExtractDataTableExileNew]" />
+                <ui:ClearDataTable DataTable="[ExtractDataTableExileNew]" DisplayName="Clear data table" sap2010:WorkflowViewState.IdRef="ClearDataTable_14" />
+              </Sequence>
+              <Sequence sap2010:WorkflowViewState.IdRef="Sequence_27">
+                <ui:NavigateTo Browser="{x:Null}" DisplayName="Navigate to" sap2010:WorkflowViewState.IdRef="NavigateTo_15" Url="http://www.jabbithole.com/achievements?f=c:4/_ti:0/_gu:f/_ae:t" />
+                <ui:ExtractData NextLinkSelector="{x:Null}" DataTable="[ExtractDataTableExileNew]" DelayBetweenPagesMS="300" DisplayName="Extract Structured Data 'TABLE  DataTables_Table...'" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' /&gt;" sap2010:WorkflowViewState.IdRef="ExtractData_20" MaxNumberOfResults="0">
+                  <ui:ExtractData.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="c65c079d637f3bb24eaebfe1af3597d4" Selector="&lt;webctrl id='DataTables_Table_0' tag='TABLE' /&gt;" WaitForReady="INTERACTIVE" />
+                  </ui:ExtractData.Target>
+                </ui:ExtractData>
+                <ui:MergeDataTable Destination="[ExtractDataTableExile]" DisplayName="Merge data table" sap2010:WorkflowViewState.IdRef="MergeDataTable_15" MissingSchemaAction="Add" Source="[ExtractDataTableExileNew]" />
+                <ui:ClearDataTable DataTable="[ExtractDataTableExileNew]" DisplayName="Clear data table" sap2010:WorkflowViewState.IdRef="ClearDataTable_15" />
+              </Sequence>
+              <Sequence sap2010:WorkflowViewState.IdRef="Sequence_28">
+                <ui:NavigateTo Browser="{x:Null}" DisplayName="Navigate to" sap2010:WorkflowViewState.IdRef="NavigateTo_16" Url="http://www.jabbithole.com/achievements?f=c:9/_gu:f/_ae:t" />
+                <ui:ExtractData NextLinkSelector="{x:Null}" DataTable="[ExtractDataTableExileNew]" DelayBetweenPagesMS="300" DisplayName="Extract Structured Data 'TABLE  DataTables_Table...'" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' /&gt;" sap2010:WorkflowViewState.IdRef="ExtractData_21" MaxNumberOfResults="0">
+                  <ui:ExtractData.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="c65c079d637f3bb24eaebfe1af3597d4" Selector="&lt;webctrl id='DataTables_Table_0' tag='TABLE' /&gt;" WaitForReady="INTERACTIVE" />
+                  </ui:ExtractData.Target>
+                </ui:ExtractData>
+                <ui:MergeDataTable Destination="[ExtractDataTableExile]" DisplayName="Merge data table" sap2010:WorkflowViewState.IdRef="MergeDataTable_16" MissingSchemaAction="Add" Source="[ExtractDataTableExileNew]" />
+                <ui:ClearDataTable DataTable="[ExtractDataTableExileNew]" DisplayName="Clear data table" sap2010:WorkflowViewState.IdRef="ClearDataTable_16" />
+              </Sequence>
+              <Sequence sap2010:WorkflowViewState.IdRef="Sequence_29">
+                <ui:NavigateTo Browser="{x:Null}" DisplayName="Navigate to" sap2010:WorkflowViewState.IdRef="NavigateTo_17" Url="http://www.jabbithole.com/achievements?f=c:3/_gu:f/_ae:t" />
+                <ui:ExtractData NextLinkSelector="{x:Null}" DataTable="[ExtractDataTableExileNew]" DelayBetweenPagesMS="300" DisplayName="Extract Structured Data 'TABLE  DataTables_Table...'" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' /&gt;" sap2010:WorkflowViewState.IdRef="ExtractData_22" MaxNumberOfResults="0">
+                  <ui:ExtractData.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="c65c079d637f3bb24eaebfe1af3597d4" Selector="&lt;webctrl id='DataTables_Table_0' tag='TABLE' /&gt;" WaitForReady="INTERACTIVE" />
+                  </ui:ExtractData.Target>
+                </ui:ExtractData>
+                <ui:MergeDataTable Destination="[ExtractDataTableExile]" DisplayName="Merge data table" sap2010:WorkflowViewState.IdRef="MergeDataTable_17" MissingSchemaAction="Add" Source="[ExtractDataTableExileNew]" />
+                <ui:ClearDataTable DataTable="[ExtractDataTableExileNew]" DisplayName="Clear data table" sap2010:WorkflowViewState.IdRef="ClearDataTable_17" />
+              </Sequence>
+              <Sequence sap2010:WorkflowViewState.IdRef="Sequence_30">
+                <ui:NavigateTo Browser="{x:Null}" DisplayName="Navigate to" sap2010:WorkflowViewState.IdRef="NavigateTo_18" Url="http://www.jabbithole.com/achievements?f=c:11/_gu:f/_ae:t" />
+                <ui:ExtractData NextLinkSelector="{x:Null}" DataTable="[ExtractDataTableExileNew]" DelayBetweenPagesMS="300" DisplayName="Extract Structured Data 'TABLE  DataTables_Table...'" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' /&gt;" sap2010:WorkflowViewState.IdRef="ExtractData_23" MaxNumberOfResults="0">
+                  <ui:ExtractData.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="c65c079d637f3bb24eaebfe1af3597d4" Selector="&lt;webctrl id='DataTables_Table_0' tag='TABLE' /&gt;" WaitForReady="INTERACTIVE" />
+                  </ui:ExtractData.Target>
+                </ui:ExtractData>
+                <ui:MergeDataTable Destination="[ExtractDataTableExile]" DisplayName="Merge data table" sap2010:WorkflowViewState.IdRef="MergeDataTable_18" MissingSchemaAction="Add" Source="[ExtractDataTableExileNew]" />
+                <ui:ClearDataTable DataTable="[ExtractDataTableExileNew]" DisplayName="Clear data table" sap2010:WorkflowViewState.IdRef="ClearDataTable_18" />
+              </Sequence>
+              <Sequence sap2010:WorkflowViewState.IdRef="Sequence_31">
+                <ui:NavigateTo Browser="{x:Null}" DisplayName="Navigate to" sap2010:WorkflowViewState.IdRef="NavigateTo_19" Url="http://www.jabbithole.com/achievements?f=c:281/_gu:f/_ae:t" />
+                <ui:ExtractData NextLinkSelector="{x:Null}" DataTable="[ExtractDataTableExileNew]" DelayBetweenPagesMS="300" DisplayName="Extract Structured Data 'TABLE  DataTables_Table...'" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' /&gt;" sap2010:WorkflowViewState.IdRef="ExtractData_24" MaxNumberOfResults="0">
+                  <ui:ExtractData.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="c65c079d637f3bb24eaebfe1af3597d4" Selector="&lt;webctrl id='DataTables_Table_0' tag='TABLE' /&gt;" WaitForReady="INTERACTIVE" />
+                  </ui:ExtractData.Target>
+                </ui:ExtractData>
+                <ui:MergeDataTable Destination="[ExtractDataTableExile]" DisplayName="Merge data table" sap2010:WorkflowViewState.IdRef="MergeDataTable_19" MissingSchemaAction="Add" Source="[ExtractDataTableExileNew]" />
+                <ui:ClearDataTable DataTable="[ExtractDataTableExileNew]" DisplayName="Clear data table" sap2010:WorkflowViewState.IdRef="ClearDataTable_19" />
+              </Sequence>
+              <Sequence>
+                <ui:NavigateTo Browser="{x:Null}" DisplayName="Navigate to" Url="http://www.jabbithole.com/achievements?f=c:175/_gu:f/_ae:t" sap2010:WorkflowViewState.IdRef="NavigateTo_20" />
+                <ui:ExtractData NextLinkSelector="{x:Null}" DataTable="[ExtractDataTableExileNew]" DelayBetweenPagesMS="300" DisplayName="Extract Structured Data 'TABLE  DataTables_Table...'" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' /&gt;" MaxNumberOfResults="0">
+                  <ui:ExtractData.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="c65c079d637f3bb24eaebfe1af3597d4" Selector="&lt;webctrl id='DataTables_Table_0' tag='TABLE' /&gt;" WaitForReady="INTERACTIVE" />
+                  </ui:ExtractData.Target>
+                  <sap2010:WorkflowViewState.IdRef>ExtractData_25</sap2010:WorkflowViewState.IdRef>
+                </ui:ExtractData>
+                <ui:MergeDataTable Destination="[ExtractDataTableExile]" DisplayName="Merge data table" MissingSchemaAction="Add" Source="[ExtractDataTableExileNew]" sap2010:WorkflowViewState.IdRef="MergeDataTable_20" />
+                <ui:ClearDataTable DataTable="[ExtractDataTableExileNew]" DisplayName="Clear data table" sap2010:WorkflowViewState.IdRef="ClearDataTable_20" />
+                <sap2010:WorkflowViewState.IdRef>Sequence_32</sap2010:WorkflowViewState.IdRef>
+              </Sequence>
             </Sequence>
           </ActivityAction>
-        </ui:BrowserScope.Body>
-      </ui:BrowserScope>
-      <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_7">
-        <Sequence.Variables>
-          <Variable x:TypeArguments="x:Int32" Default="1" Name="rowNumber" />
-          <Variable x:TypeArguments="x:String" Name="sqlCode" />
-        </Sequence.Variables>
-        <Assign sap2010:WorkflowViewState.IdRef="Assign_5">
-          <Assign.To>
-            <OutArgument x:TypeArguments="x:String">[sqlCode]</OutArgument>
-          </Assign.To>
-          <Assign.Value>
-            <InArgument x:TypeArguments="x:String">
-              <Literal x:TypeArguments="x:String" Value="" />
-            </InArgument>
-          </Assign.Value>
-        </Assign>
-        <ui:ForEachRow DataTable="[ExtractDataTable]" DisplayName="For each row" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
-          <ui:ForEachRow.Body>
-            <ActivityAction x:TypeArguments="sd:DataRow">
-              <ActivityAction.Argument>
-                <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
-              </ActivityAction.Argument>
-              <Sequence DisplayName="Body" sap2010:WorkflowViewState.IdRef="Sequence_6">
-                <ui:LogMessage DisplayName="Log message" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Row &quot; + rowNumber.ToString]" />
-                <If Condition="[row.Item(&quot;Tier&quot;).ToString &lt;&gt; &quot;&quot;]" sap2010:WorkflowViewState.IdRef="If_2">
-                  <If.Then>
-                    <Assign sap2010:WorkflowViewState.IdRef="Assign_6">
-                      <Assign.To>
-                        <OutArgument x:TypeArguments="x:String">[sqlCode]</OutArgument>
-                      </Assign.To>
-                      <Assign.Value>
-                        <InArgument x:TypeArguments="x:String">[sqlCode + "INSERT INTO wildstar_achievements_d (ach_name,category,tier) VALUES (""" + row.Item("Name").ToString + """,""" + row.Item("Category").ToString + """," + row.Item("Tier").ToString + ");[k(enter)]"]</InArgument>
-                      </Assign.Value>
-                    </Assign>
-                  </If.Then>
-                  <If.Else>
-                    <Assign sap2010:WorkflowViewState.IdRef="Assign_7">
-                      <Assign.To>
-                        <OutArgument x:TypeArguments="x:String">[sqlCode]</OutArgument>
-                      </Assign.To>
-                      <Assign.Value>
-                        <InArgument x:TypeArguments="x:String">[sqlCode + "INSERT INTO wildstar_achievements_d (ach_name,category) VALUES (""" + row.Item("Name").ToString + """,""" + row.Item("Category").ToString + """);[k(enter)]"]</InArgument>
-                      </Assign.Value>
-                    </Assign>
-                  </If.Else>
-                </If>
-                <Assign sap2010:WorkflowViewState.IdRef="Assign_8">
-                  <Assign.To>
-                    <OutArgument x:TypeArguments="x:Int32">[rowNumber]</OutArgument>
-                  </Assign.To>
-                  <Assign.Value>
-                    <InArgument x:TypeArguments="x:Int32">[rowNumber + 1]</InArgument>
-                  </Assign.Value>
-                </Assign>
-              </Sequence>
-            </ActivityAction>
-          </ui:ForEachRow.Body>
-        </ui:ForEachRow>
-        <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Type into 'Scintilla'" EmptyField="False" sap2010:WorkflowViewState.IdRef="TypeInto_5" SendWindowMessages="False" SimulateType="False" Text="[sqlCode]">
-          <ui:TypeInto.Target>
-            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="03bd4f5d91097e7248b37e843afb557b" Selector="&lt;wnd app='notepad++.exe' cls='Notepad++' omit:title='D:\Documents\Visual Studio 2017\Projects\sixteen-achievements\Ac*' /&gt;&lt;wnd cls='Scintilla' idx='1' omit:title='N' /&gt;" WaitForReady="INTERACTIVE" />
-          </ui:TypeInto.Target>
-        </ui:TypeInto>
-      </Sequence>
+        </ui:OpenBrowser.Body>
+      </ui:OpenBrowser>
     </Sequence>
-    <sads:DebugSymbol.Symbol>d2REOlxEb2N1bWVudHNcVmlzdWFsIFN0dWRpbyAyMDE3XFByb2plY3RzXHNpeHRlZW4tYWNoaWV2ZW1lbnRzXEFjaGlldmVtZW50IHB1bGxcUHVsbCBzY3JpcHRcTWFpbi54YW1sJj8DlQEOAgEBQAWTARACAQJCOkJXAgEDRAdTGQIBJFQHkgESAgEERJ4CRPgCAgEvSg1QGAIBJVY3VjoCAQVZCWISAgEgYwmMARkCAQqNAQmRARcCAQZLD08gAgEmXw9fPgIBI1s1Wz4CASFjImM2AgEeaQ+JARoCAQuPAZwBjwHSAgIBCY0BnwKNAaoCAgEHS8oCS88CAgEuTaIBTdkBAgEtS2lLbgIBLEsvSzUCAStLQEtUAgEpS+ECS5kDAgEoS8IBS4YCAgEnahFqqgECARtrEYABFgIBEYEBEYgBGgIBDGp+aqcBAgEcax9rXAIBEm0VdB4CARd3FX4eAgEThgE7hgFKAgEPgwE8gwFHAgENckBykAICARpvQW9KAgEYfEB86QECARZ5QXlKAgEU</sads:DebugSymbol.Symbol>
+    <sads:DebugSymbol.Symbol>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</sads:DebugSymbol.Symbol>
   </Sequence>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>
-      <sap2010:ViewStateData Id="ExtractData_1" sap:VirtualizedContainerService.HintSize="314,106" />
-      <sap2010:ViewStateData Id="Sequence_2" sap:VirtualizedContainerService.HintSize="336,230">
+      <sap2010:ViewStateData Id="ExtractData_4" sap:VirtualizedContainerService.HintSize="336,106" />
+      <sap2010:ViewStateData Id="NavigateTo_1" sap:VirtualizedContainerService.HintSize="314,59" />
+      <sap2010:ViewStateData Id="ExtractData_5" sap:VirtualizedContainerService.HintSize="314,106" />
+      <sap2010:ViewStateData Id="MergeDataTable_1" sap:VirtualizedContainerService.HintSize="314,22">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="ClearDataTable_1" sap:VirtualizedContainerService.HintSize="314,22" />
+      <sap2010:ViewStateData Id="Sequence_6" sap:VirtualizedContainerService.HintSize="336,453">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="BrowserScope_1" sap:VirtualizedContainerService.HintSize="579,376" />
-      <sap2010:ViewStateData Id="Assign_5" sap:VirtualizedContainerService.HintSize="557,61" />
-      <sap2010:ViewStateData Id="LogMessage_2" sap:VirtualizedContainerService.HintSize="505,91" />
-      <sap2010:ViewStateData Id="Assign_6" sap:VirtualizedContainerService.HintSize="240,61" />
-      <sap2010:ViewStateData Id="Assign_7" sap:VirtualizedContainerService.HintSize="240,61" />
-      <sap2010:ViewStateData Id="If_2" sap:VirtualizedContainerService.HintSize="505,210" />
-      <sap2010:ViewStateData Id="Assign_8" sap:VirtualizedContainerService.HintSize="505,61" />
-      <sap2010:ViewStateData Id="Sequence_6" sap:VirtualizedContainerService.HintSize="527,566">
+      <sap2010:ViewStateData Id="NavigateTo_2" sap:VirtualizedContainerService.HintSize="314,59" />
+      <sap2010:ViewStateData Id="ExtractData_7" sap:VirtualizedContainerService.HintSize="314,106" />
+      <sap2010:ViewStateData Id="MergeDataTable_2" sap:VirtualizedContainerService.HintSize="314,22">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="ClearDataTable_2" sap:VirtualizedContainerService.HintSize="314,22" />
+      <sap2010:ViewStateData Id="Sequence_7" sap:VirtualizedContainerService.HintSize="336,453">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="ForEachRow_2" sap:VirtualizedContainerService.HintSize="557,715" />
-      <sap2010:ViewStateData Id="TypeInto_5" sap:VirtualizedContainerService.HintSize="557,134" />
-      <sap2010:ViewStateData Id="Sequence_7" sap:VirtualizedContainerService.HintSize="579,1114">
+      <sap2010:ViewStateData Id="NavigateTo_8" sap:VirtualizedContainerService.HintSize="314,59" />
+      <sap2010:ViewStateData Id="ExtractData_13" sap:VirtualizedContainerService.HintSize="314,106" />
+      <sap2010:ViewStateData Id="MergeDataTable_8" sap:VirtualizedContainerService.HintSize="314,22">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="ClearDataTable_8" sap:VirtualizedContainerService.HintSize="314,22" />
+      <sap2010:ViewStateData Id="Sequence_20" sap:VirtualizedContainerService.HintSize="336,453">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="Sequence_3" sap:VirtualizedContainerService.HintSize="601,1654">
+      <sap2010:ViewStateData Id="NavigateTo_9" sap:VirtualizedContainerService.HintSize="314,59" />
+      <sap2010:ViewStateData Id="ExtractData_14" sap:VirtualizedContainerService.HintSize="314,106" />
+      <sap2010:ViewStateData Id="MergeDataTable_9" sap:VirtualizedContainerService.HintSize="314,22">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="ClearDataTable_9" sap:VirtualizedContainerService.HintSize="314,22" />
+      <sap2010:ViewStateData Id="Sequence_21" sap:VirtualizedContainerService.HintSize="336,453">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="623,1778">
+      <sap2010:ViewStateData Id="NavigateTo_10" sap:VirtualizedContainerService.HintSize="314,59" />
+      <sap2010:ViewStateData Id="ExtractData_15" sap:VirtualizedContainerService.HintSize="314,106" />
+      <sap2010:ViewStateData Id="MergeDataTable_10" sap:VirtualizedContainerService.HintSize="314,22">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="ClearDataTable_10" sap:VirtualizedContainerService.HintSize="314,22" />
+      <sap2010:ViewStateData Id="Sequence_22" sap:VirtualizedContainerService.HintSize="336,453">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="Main_1" sap:VirtualizedContainerService.HintSize="663,1858" />
+      <sap2010:ViewStateData Id="NavigateTo_11" sap:VirtualizedContainerService.HintSize="314,59" />
+      <sap2010:ViewStateData Id="ExtractData_16" sap:VirtualizedContainerService.HintSize="314,106" />
+      <sap2010:ViewStateData Id="MergeDataTable_11" sap:VirtualizedContainerService.HintSize="314,22">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="ClearDataTable_11" sap:VirtualizedContainerService.HintSize="314,22" />
+      <sap2010:ViewStateData Id="Sequence_23" sap:VirtualizedContainerService.HintSize="336,453">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="NavigateTo_12" sap:VirtualizedContainerService.HintSize="314,59" />
+      <sap2010:ViewStateData Id="ExtractData_17" sap:VirtualizedContainerService.HintSize="314,106" />
+      <sap2010:ViewStateData Id="MergeDataTable_12" sap:VirtualizedContainerService.HintSize="314,22">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="ClearDataTable_12" sap:VirtualizedContainerService.HintSize="314,22" />
+      <sap2010:ViewStateData Id="Sequence_24" sap:VirtualizedContainerService.HintSize="336,453">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="NavigateTo_13" sap:VirtualizedContainerService.HintSize="314,59" />
+      <sap2010:ViewStateData Id="ExtractData_18" sap:VirtualizedContainerService.HintSize="314,106" />
+      <sap2010:ViewStateData Id="MergeDataTable_13" sap:VirtualizedContainerService.HintSize="314,22">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="ClearDataTable_13" sap:VirtualizedContainerService.HintSize="314,22" />
+      <sap2010:ViewStateData Id="Sequence_25" sap:VirtualizedContainerService.HintSize="336,453">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="NavigateTo_14" sap:VirtualizedContainerService.HintSize="314,59" />
+      <sap2010:ViewStateData Id="ExtractData_19" sap:VirtualizedContainerService.HintSize="314,106" />
+      <sap2010:ViewStateData Id="MergeDataTable_14" sap:VirtualizedContainerService.HintSize="314,22">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="ClearDataTable_14" sap:VirtualizedContainerService.HintSize="314,22" />
+      <sap2010:ViewStateData Id="Sequence_26" sap:VirtualizedContainerService.HintSize="336,453">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="NavigateTo_15" sap:VirtualizedContainerService.HintSize="314,59" />
+      <sap2010:ViewStateData Id="ExtractData_20" sap:VirtualizedContainerService.HintSize="314,106" />
+      <sap2010:ViewStateData Id="MergeDataTable_15" sap:VirtualizedContainerService.HintSize="314,22">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="ClearDataTable_15" sap:VirtualizedContainerService.HintSize="314,22" />
+      <sap2010:ViewStateData Id="Sequence_27" sap:VirtualizedContainerService.HintSize="336,453">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="NavigateTo_16" sap:VirtualizedContainerService.HintSize="314,59" />
+      <sap2010:ViewStateData Id="ExtractData_21" sap:VirtualizedContainerService.HintSize="314,106" />
+      <sap2010:ViewStateData Id="MergeDataTable_16" sap:VirtualizedContainerService.HintSize="314,22">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="ClearDataTable_16" sap:VirtualizedContainerService.HintSize="314,22" />
+      <sap2010:ViewStateData Id="Sequence_28" sap:VirtualizedContainerService.HintSize="336,453">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="NavigateTo_17" sap:VirtualizedContainerService.HintSize="314,59" />
+      <sap2010:ViewStateData Id="ExtractData_22" sap:VirtualizedContainerService.HintSize="314,106" />
+      <sap2010:ViewStateData Id="MergeDataTable_17" sap:VirtualizedContainerService.HintSize="314,22">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="ClearDataTable_17" sap:VirtualizedContainerService.HintSize="314,22" />
+      <sap2010:ViewStateData Id="Sequence_29" sap:VirtualizedContainerService.HintSize="336,453">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="NavigateTo_18" sap:VirtualizedContainerService.HintSize="314,59" />
+      <sap2010:ViewStateData Id="ExtractData_23" sap:VirtualizedContainerService.HintSize="314,106" />
+      <sap2010:ViewStateData Id="MergeDataTable_18" sap:VirtualizedContainerService.HintSize="314,22">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="ClearDataTable_18" sap:VirtualizedContainerService.HintSize="314,22" />
+      <sap2010:ViewStateData Id="Sequence_30" sap:VirtualizedContainerService.HintSize="336,453">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="NavigateTo_19" sap:VirtualizedContainerService.HintSize="314,59" />
+      <sap2010:ViewStateData Id="ExtractData_24" sap:VirtualizedContainerService.HintSize="314,106" />
+      <sap2010:ViewStateData Id="MergeDataTable_19" sap:VirtualizedContainerService.HintSize="314,22">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="ClearDataTable_19" sap:VirtualizedContainerService.HintSize="314,22" />
+      <sap2010:ViewStateData Id="Sequence_31" sap:VirtualizedContainerService.HintSize="336,453">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="NavigateTo_20" sap:VirtualizedContainerService.HintSize="314,59" />
+      <sap2010:ViewStateData Id="ExtractData_25" sap:VirtualizedContainerService.HintSize="314,106" />
+      <sap2010:ViewStateData Id="MergeDataTable_20" sap:VirtualizedContainerService.HintSize="314,22">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="ClearDataTable_20" sap:VirtualizedContainerService.HintSize="314,22" />
+      <sap2010:ViewStateData Id="Sequence_32" sap:VirtualizedContainerService.HintSize="336,453">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Sequence_4" sap:VirtualizedContainerService.HintSize="358,7625">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="OpenBrowser_2" sap:VirtualizedContainerService.HintSize="414,7724" />
+      <sap2010:ViewStateData Id="Sequence_5" sap:VirtualizedContainerService.HintSize="436,7848">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="458,7972">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Main_1" sap:VirtualizedContainerService.HintSize="498,8052" />
     </sap2010:ViewStateManager>
   </sap2010:WorkflowViewState.ViewStateManager>
 </Activity>
