@@ -1,5 +1,4 @@
-﻿INSERT INTO wildstar_achievements_e (ach_name, category, tier) VALUES
-("Vanquisher of the Dreg","Adventures : The Malgrave Trail : Veteran Mode",NULL),
+﻿INSERT INTO `wildstar_achievements_e` (`ach_name`, `category`, `tier`) VALUES ("Vanquisher of the Dreg","Adventures : The Malgrave Trail : Veteran Mode",NULL),
 ("Vanquisher of the Samu-Samu","Adventures : War of the Wilds : Veteran Mode",NULL),
 ("Sentinel","Adventures : Riot in the Void : Normal Mode",NULL),
 ("Brain Freeze","Adventures : War of the Wilds : Normal Mode",NULL),
@@ -812,7 +811,7 @@
 ("Exotic Executioner: The Primal Destroyer","Kill : Wilderrun",NULL),
 ("World Boss: Zoetic","Kill : World Bosses",NULL),
 ("Exotic Executioner: Malmedical Mechanica","Kill : Blighthaven",NULL),
-("Exotic Executioner: Alex "Stabby" Boyer","Kill : Malgrave",NULL),
+("Exotic Executioner: Alex \"Stabby\" Boyer","Kill : Malgrave",NULL),
 ("Exotic Executioner: Farside","Kill : Farside",NULL),
 ("Exotic Executioner: Greva the Bone Collector","Kill : Farside",NULL),
 ("Exotic Executioner: Frozenclaw","Kill : Whitevale",NULL),
@@ -1037,7 +1036,7 @@
 ("Techno-Phage Knockout","Quest : The Defile",NULL),
 ("Episode Completion: Stabilizing the Region","Quest : Grimvault",NULL),
 ("Episode Completion: Welcome to Thermock Hold","Quest : Whitevale",NULL),
-("Episode Completion: In Space No One Can Hear You Say "Die"","Quest : Farside",NULL),
+("Episode Completion: In Space No One Can Hear You Say \"Die\"","Quest : Farside",NULL),
 ("Episode Completion: Retaliation","Quest : Everstar Grove",NULL),
 ("Episode Completion: Expedition Force","Quest : Algoroc",NULL),
 ("Fighting with Friends: Algoroc","Quest : Algoroc",NULL),
@@ -1138,7 +1137,7 @@
 ("Artful Dodger","World Story",NULL),
 ("Silver Medal: Journey into the OMNICore","World Story",NULL),
 ("Rainbow Warrior","World Story",NULL);
-INSERT INTO wildstar_achievements_d (ach_name, category, tier) VALUES
+INSERT INTO `wildstar_achievements_d` (`ach_name`, `category`, `tier`) VALUES
 ("Vanquisher of the Dreg","Adventures : The Malgrave Trail : Veteran Mode",NULL),
 ("Vanquisher of the Samu-Samu","Adventures : War of the Wilds : Veteran Mode",NULL),
 ("Spin to Win","Adventures : War of the Wilds : Normal Mode",NULL),
@@ -2154,7 +2153,7 @@ INSERT INTO wildstar_achievements_d (ach_name, category, tier) VALUES
 ("Episode Completion: The Indestructible Wall","Quest : Grimvault",NULL),
 ("Episode Completion: Furlo's Haunted Hunt","Quest : Grimvault",NULL),
 ("Episode Completion: The Ekose's Elegy","Quest : Farside",NULL),
-("Episode Completion: In Space No One Can Hear You Say "Die"","Quest : Farside",NULL),
+("Episode Completion: In Space No One Can Hear You Say \"Die\"","Quest : Farside",NULL),
 ("Episode Completion: Light in a Dark Land","Quest : Ellevar",NULL),
 ("Episode Completion: Heart of the Strain","Quest : Grimvault",NULL),
 ("Fighting with Friends: Auroria","Quest : Auroria",NULL),
@@ -2278,4 +2277,4 @@ INSERT INTO wildstar_achievements_d (ach_name, category, tier) VALUES
 ("Memory Wipe","World Story",NULL),
 ("Artful Dodger","World Story",NULL),
 ("Silver Medal: Journey into the OMNICore","World Story",NULL),
-("Rainbow Warrior","World Story",NULL);
+("Rainbow Warrior","World Story",NULL),
