@@ -20,6 +20,8 @@ export class CharacterComponent implements OnInit {
 
   matrixURL = '../../assets/class-matrix.csv';
 
+  @Output() factionEvent: EventEmitter<string> = new EventEmitter<string>();
+
   constructor(private http: Http) { }
 
   ngOnInit() {
@@ -81,6 +83,7 @@ export class CharacterComponent implements OnInit {
     const index = Math.floor(Math.random() * this.factions.length);
     this.selectedFaction = this.factions[index];
     this.calculateRaces();
+    this.factionEvent.emit(this.selectedFaction);
   }
   rollClass() {
     const index = Math.floor(Math.random() * this.classes.length);
