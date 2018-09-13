@@ -1,5 +1,5 @@
 <mat-form-field>
-  <mat-select placeholder="Faction">
+  <mat-select placeholder="Faction" [(value)]="selectedFaction" (selectionChange)="calculateRaces()">
     <mat-option *ngFor="let faction of factions" [value]="faction">
       {{faction}}
     </mat-option>
@@ -7,9 +7,25 @@
 </mat-form-field>
 <mat-slide-toggle color="primary"></mat-slide-toggle>
 <mat-form-field>
-  <mat-select placeholder="Class">
+  <mat-select placeholder="Class" [(value)]="selectedClass" (selectionChange)="calculateRaces()">
     <mat-option *ngFor="let class of classes" [value]="class">
       {{class}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<mat-slide-toggle color="primary"></mat-slide-toggle>
+<mat-form-field>
+  <mat-select placeholder="Race" [(value)]="selectedRace">
+    <mat-option *ngFor="let race of races" [value]="race">
+      {{race}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<mat-slide-toggle color="primary"></mat-slide-toggle>
+<mat-form-field>
+  <mat-select placeholder="Path" [(value)]="selectedPath">
+    <mat-option *ngFor="let path of paths" [value]="path">
+      {{path}}
     </mat-option>
   </mat-select>
 </mat-form-field>

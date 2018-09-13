@@ -8,7 +8,8 @@
             "group": "build",
             "options": {
                 "cwd": "${workspaceFolder}/sixteen-achievements/"
-            }
+            },
+            "problemMatcher": []
         }
     ]
 }
