@@ -4,14 +4,10 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { MatSelectModule, MatSlideToggleModule, MatCardModule, MatButtonModule } from '@angular/material';
 import { AppComponent } from './app.component';
-import { CharacterComponent } from './character/character.component';
-import { AchievementsComponent } from './achievements/achievements.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    CharacterComponent,
-    AchievementsComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,

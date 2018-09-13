@@ -5,5 +5,84 @@
   </h1>
   <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
 </div>
-<app-character (faction)="onFactionEvent($event)"></app-character>
-<app-achievements [faction]="faction"></app-achievements>
+<mat-form-field>
+  <mat-select placeholder="Faction" [(value)]="selectedFaction" (selectionChange)="calculateRaces()">
+    <mat-option *ngFor="let faction of factions" [value]="faction">
+      {{faction}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<button mat-stroked-button (click)="rollFaction()">Roll</button>
+<mat-form-field>
+  <mat-select placeholder="Class" [(value)]="selectedClass" (selectionChange)="calculateRaces()">
+    <mat-option *ngFor="let class of classes" [value]="class">
+      {{class}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<button mat-stroked-button (click)="rollClass()">Roll</button>
+<mat-form-field>
+  <mat-select placeholder="Race" [(value)]="selectedRace">
+    <mat-option *ngFor="let race of races" [value]="race">
+      {{race}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<button mat-stroked-button (click)="rollRace()">Roll</button>
+<mat-form-field>
+  <mat-select placeholder="Path" [(value)]="selectedPath">
+    <mat-option *ngFor="let path of paths" [value]="path">
+      {{path}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<button mat-stroked-button (click)="rollPath()">Roll</button>
+<button mat-flat-button (click)="rollAchievements()">Roll Achievements</button>
+<hr>
+<h1>{{achievements[0].name}}</h1>
+<h2>{{achievements[0].category}}</h2>
+<hr>
+<h1>{{achievements[1].name}}</h1>
+<h2>{{achievements[1].category}}</h2>
+<hr>
+<h1>{{achievements[2].name}}</h1>
+<h2>{{achievements[2].category}}</h2>
+<hr>
+<h1>{{achievements[3].name}}</h1>
+<h2>{{achievements[3].category}}</h2>
+<hr>
+<h1>{{achievements[4].name}}</h1>
+<h2>{{achievements[4].category}}</h2>
+<hr>
+<h1>{{achievements[5].name}}</h1>
+<h2>{{achievements[5].category}}</h2>
+<hr>
+<h1>{{achievements[6].name}}</h1>
+<h2>{{achievements[6].category}}</h2>
+<hr>
+<h1>{{achievements[7].name}}</h1>
+<h2>{{achievements[7].category}}</h2>
+<hr>
+<h1>{{achievements[8].name}}</h1>
+<h2>{{achievements[8].category}}</h2>
+<hr>
+<h1>{{achievements[9].name}}</h1>
+<h2>{{achievements[9].category}}</h2>
+<hr>
+<h1>{{achievements[10].name}}</h1>
+<h2>{{achievements[10].category}}</h2>
+<hr>
+<h1>{{achievements[11].name}}</h1>
+<h2>{{achievements[11].category}}</h2>
+<hr>
+<h1>{{achievements[12].name}}</h1>
+<h2>{{achievements[12].category}}</h2>
+<hr>
+<h1>{{achievements[13].name}}</h1>
+<h2>{{achievements[13].category}}</h2>
+<hr>
+<h1>{{achievements[14].name}}</h1>
+<h2>{{achievements[14].category}}</h2>
+<hr>
+<h1>{{achievements[15].name}}</h1>
+<h2>{{achievements[15].category}}</h2>
