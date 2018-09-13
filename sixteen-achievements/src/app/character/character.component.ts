@@ -10,7 +10,7 @@ import { Http, Response } from '@angular/http';
 export class CharacterComponent implements OnInit {
   factions: string[] = ['Exile', 'Dominion'];
   classes: string[] = ['Warrior', 'Spellslinger', 'Medic', 'Stalker', 'Esper', 'Engineer'];
-  races: string[];
+  races: string[] = [];
   paths: string[] = ['Explorer', 'Scientist', 'Soldier', 'Settler'];
 
   selectedFaction: string;
@@ -26,9 +26,6 @@ export class CharacterComponent implements OnInit {
   }
 
   calculateRaces() {
-    console.log('Selected faction: ' + this.selectedFaction);
-    console.log('Selected class: ' + this.selectedClass);
-
     if (this.selectedFaction === undefined || this.selectedClass === undefined) {
       return;
     }
@@ -78,5 +75,24 @@ export class CharacterComponent implements OnInit {
         this.races.push('Chua');
       }
     }
+  }
+
+  rollFaction() {
+    const index = Math.floor(Math.random() * this.factions.length);
+    this.selectedFaction = this.factions[index];
+    this.calculateRaces();
+  }
+  rollClass() {
+    const index = Math.floor(Math.random() * this.classes.length);
+    this.selectedClass = this.classes[index];
+    this.calculateRaces();
+  }
+  rollRace() {
+    const index = Math.floor(Math.random() * this.races.length);
+    this.selectedRace = this.races[index];
+  }
+  rollPath() {
+    const index = Math.floor(Math.random() * this.paths.length);
+    this.selectedPath = this.paths[index];
   }
 }

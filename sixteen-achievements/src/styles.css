@@ -1,5 +1,6 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
-mat-slide-toggle {
-  margin-right: 50px;
+button.mat-stroked-button {
+  margin-left: 10px;
+  margin-right: 40px;
 }

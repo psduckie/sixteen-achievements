@@ -5,7 +5,7 @@
     </mat-option>
   </mat-select>
 </mat-form-field>
-<mat-slide-toggle color="primary"></mat-slide-toggle>
+<button mat-stroked-button (click)="rollFaction()">Roll</button>
 <mat-form-field>
   <mat-select placeholder="Class" [(value)]="selectedClass" (selectionChange)="calculateRaces()">
     <mat-option *ngFor="let class of classes" [value]="class">
@@ -13,7 +13,7 @@
     </mat-option>
   </mat-select>
 </mat-form-field>
-<mat-slide-toggle color="primary"></mat-slide-toggle>
+<button mat-stroked-button (click)="rollClass()">Roll</button>
 <mat-form-field>
   <mat-select placeholder="Race" [(value)]="selectedRace">
     <mat-option *ngFor="let race of races" [value]="race">
@@ -21,7 +21,7 @@
     </mat-option>
   </mat-select>
 </mat-form-field>
-<mat-slide-toggle color="primary"></mat-slide-toggle>
+<button mat-stroked-button (click)="rollRace()">Roll</button>
 <mat-form-field>
   <mat-select placeholder="Path" [(value)]="selectedPath">
     <mat-option *ngFor="let path of paths" [value]="path">
@@ -29,4 +29,4 @@
     </mat-option>
   </mat-select>
 </mat-form-field>
-<mat-slide-toggle color="primary"></mat-slide-toggle>
+<button mat-stroked-button (click)="rollPath()">Roll</button>
