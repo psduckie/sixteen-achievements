@@ -1,0 +1,7 @@
+<mat-form-field>
+  <mat-select placeholder="Faction">
+    <mat-option *ngFor="let faction of factions" [value]="faction">
+      {{faction}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>

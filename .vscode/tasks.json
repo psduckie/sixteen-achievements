@@ -1,0 +1,14 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Start Angular Server",
+            "type": "shell",
+            "command": "ng serve",
+            "group": "build",
+            "options": {
+                "cwd": "${workspaceFolder}/sixteen-achievements/"
+            }
+        }
+    ]
+}
