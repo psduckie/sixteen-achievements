@@ -109,9 +109,9 @@ export class AppComponent {
   }
 
   rollAchievements() {
-    if (this.faction === null || this.faction === undefined) {
+    if (this.selectedFaction === null || this.selectedFaction === undefined) {
       return;
-    } else if (this.faction === 'Exile') {
+    } else if (this.selectedFaction === 'Exile') {
       this.achieveURL = '../../assets/achievements-e.csv';
     } else { // Dominion
       this.achieveURL = '../../assets/achievements-d.csv';
@@ -131,27 +131,30 @@ export class AppComponent {
 
     for (let i = 0; i < 16; i++) {
       randomResult = Math.floor(Math.random() * allTextLines.length);
-      const counter = 0;
-      this.extractAchievementDataRecurse(allTextLines, currentLine, counter, randomResult);
+      this.extractAchievementDataRecurse(allTextLines, currentLine, randomResult);
     }
   }
 
-  extractAchievementDataRecurse(allTextLines, currentLine, counter, randomResult) {
+  extractAchievementDataRecurse(allTextLines, currentLine, randomResult) {
+    console.log(allTextLines);
+    let counter = 0;
     do {
       currentLine = allTextLines[counter].split(',');
-      if (currentLine[0] !== randomResult) {
+      console.log(currentLine);
+      console.log(currentLine[0] * 1);
+      if (currentLine[0] * 1 !== randomResult) {
         counter++;
       }
-    } while (currentLine[0] !== randomResult);
+    } while (currentLine[0] * 1 !== randomResult);
 
-    for (let i = this.achievements.length - 1; i >= 0; i--) {
+/*    for (let i = this.achievements.length - 1; i >= 0; i--) {
       if (this.achievements[i].index === this.achievements[randomResult].index) {
         randomResult = Math.floor(Math.random() * allTextLines.length);
-        this.extractAchievementDataRecurse(allTextLines, currentLine, counter, randomResult);
+        this.extractAchievementDataRecurse(allTextLines, currentLine, randomResult);
       } else {
         break;
       }
-    }
+    }*/
 
     this.achievements[this.achievements.length] = {
       'index': currentLine[0],

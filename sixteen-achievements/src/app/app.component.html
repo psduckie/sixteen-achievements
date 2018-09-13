@@ -38,51 +38,8 @@
 </mat-form-field>
 <button mat-stroked-button (click)="rollPath()">Roll</button>
 <button mat-flat-button (click)="rollAchievements()">Roll Achievements</button>
-<hr>
-<h1>{{achievements[0].name}}</h1>
-<h2>{{achievements[0].category}}</h2>
-<hr>
-<h1>{{achievements[1].name}}</h1>
-<h2>{{achievements[1].category}}</h2>
-<hr>
-<h1>{{achievements[2].name}}</h1>
-<h2>{{achievements[2].category}}</h2>
-<hr>
-<h1>{{achievements[3].name}}</h1>
-<h2>{{achievements[3].category}}</h2>
-<hr>
-<h1>{{achievements[4].name}}</h1>
-<h2>{{achievements[4].category}}</h2>
-<hr>
-<h1>{{achievements[5].name}}</h1>
-<h2>{{achievements[5].category}}</h2>
-<hr>
-<h1>{{achievements[6].name}}</h1>
-<h2>{{achievements[6].category}}</h2>
-<hr>
-<h1>{{achievements[7].name}}</h1>
-<h2>{{achievements[7].category}}</h2>
-<hr>
-<h1>{{achievements[8].name}}</h1>
-<h2>{{achievements[8].category}}</h2>
-<hr>
-<h1>{{achievements[9].name}}</h1>
-<h2>{{achievements[9].category}}</h2>
-<hr>
-<h1>{{achievements[10].name}}</h1>
-<h2>{{achievements[10].category}}</h2>
-<hr>
-<h1>{{achievements[11].name}}</h1>
-<h2>{{achievements[11].category}}</h2>
-<hr>
-<h1>{{achievements[12].name}}</h1>
-<h2>{{achievements[12].category}}</h2>
-<hr>
-<h1>{{achievements[13].name}}</h1>
-<h2>{{achievements[13].category}}</h2>
-<hr>
-<h1>{{achievements[14].name}}</h1>
-<h2>{{achievements[14].category}}</h2>
-<hr>
-<h1>{{achievements[15].name}}</h1>
-<h2>{{achievements[15].category}}</h2>
+<div *ngFor="let achievement of achievements">
+  <hr>
+  <h1>{{achievement.name}} {{achievement.tier}}</h1>
+  <h2>{{achievement.category}}</h2>
+</div>
