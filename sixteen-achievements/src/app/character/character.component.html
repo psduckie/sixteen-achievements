@@ -5,3 +5,12 @@
     </mat-option>
   </mat-select>
 </mat-form-field>
+<mat-slide-toggle color="primary"></mat-slide-toggle>
+<mat-form-field>
+  <mat-select placeholder="Class">
+    <mat-option *ngFor="let class of classes" [value]="class">
+      {{class}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<mat-slide-toggle color="primary"></mat-slide-toggle>
